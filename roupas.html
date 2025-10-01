@@ -4,16 +4,51 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Roupas Infantis - Doce Infância</title>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=1">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* Estilo dos cards de roupas */
+    .filtros {
+      background: var(--card);
+      padding: 15px;
+      border-radius: 10px;
+      margin-bottom: 20px;
+    }
+    .roupas-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 20px;
+    }
+    .roupa-card {
+      background: var(--card);
+      border: 1px solid var(--muted);
+      border-radius: 10px;
+      padding: 12px;
+      text-align: center;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+    }
+    .roupa-card img {
+      max-width: 100%;
+      border-radius: 8px;
+    }
+    .roupa-card h4 {
+      margin: 10px 0 5px;
+      font-size: 18px;
+      color: var(--text);
+    }
+    .roupa-card p {
+      font-size: var(--small);
+      color: #666;
+    }
+  </style>
 </head>
 <body>
   <header>
-    <h1>Roupas Infantis</h1>
+    <h1>Doce Infância</h1>
     <nav>
       <ul>
         <li><a href="index.html">Início</a></li>
         <li><a href="cardapio.html">Cardápio</a></li>
+        <li><a href="roupas.html">Roupas infantis</a></li>
         <li><a href="contribuir.html">Quero contribuir</a></li>
         <li><a href="sobre.html">Sobre nós</a></li>
         <li><a href="fotos.html">Fotos</a></li>
@@ -22,15 +57,86 @@
   </header>
 
   <main>
-    <section class="section">
-      <p>Aqui você encontra roupas infantis em ótimo estado, com preços acessíveis, ajudando famílias e crianças a terem mais opções sem desperdício!</p>
-      <p>Faixa etária: 0 a 14 anos</p>
-      <p>Ao comprar ou doar, você ajuda a reduzir desperdício e leva carinho junto da peça.</p>
-    </section>
+    <h2>Roupas Infantis</h2>
+
+    <!-- Filtros e Pesquisa -->
+    <div class="filtros">
+      <input type="text" id="pesquisa" placeholder="Pesquisar peça..." onkeyup="filtrarRoupas()">
+
+      <select id="tipo" onchange="filtrarRoupas()">
+        <option value="">Tipo de peça</option>
+        <option value="camiseta">Camiseta</option>
+        <option value="vestido">Vestido</option>
+        <option value="calça">Calça</option>
+      </select>
+
+      <select id="idade" onchange="filtrarRoupas()">
+        <option value="">Idade</option>
+        <option value="0-2">0-2 anos</option>
+        <option value="3-5">3-5 anos</option>
+        <option value="6-10">6-10 anos</option>
+      </select>
+
+      <select id="condicao" onchange="filtrarRoupas()">
+        <option value="">Condição</option>
+        <option value="novo">Novo</option>
+        <option value="usado">Usado</option>
+      </select>
+    </div>
+
+    <!-- Listagem de roupas -->
+    <div class="roupas-grid" id="listaRoupas">
+      <div class="roupa-card" data-tipo="camiseta" data-idade="3-5" data-condicao="novo">
+        <img src="https://via.placeholder.com/200x200.png?text=Camiseta" alt="Camiseta">
+        <h4>Camiseta Azul</h4>
+        <p>3-5 anos | Novo</p>
+      </div>
+
+      <div class="roupa-card" data-tipo="vestido" data-idade="0-2" data-condicao="usado">
+        <img src="https://via.placeholder.com/200x200.png?text=Vestido" alt="Vestido">
+        <h4>Vestido Rosa</h4>
+        <p>0-2 anos | Usado</p>
+      </div>
+
+      <div class="roupa-card" data-tipo="calça" data-idade="6-10" data-condicao="novo">
+        <img src="https://via.placeholder.com/200x200.png?text=Calça" alt="Calça">
+        <h4>Calça Jeans</h4>
+        <p>6-10 anos | Novo</p>
+      </div>
+    </div>
   </main>
 
   <footer>
-    <p>© 2025 Doce Infância</p>
+    <p>© 2025 Doce Infância | Instagram: @DoceInfância_ | WhatsApp: (00) 00000-0000</p>
   </footer>
+
+  <script>
+    function filtrarRoupas() {
+      const pesquisa = document.getElementById('pesquisa').value.toLowerCase();
+      const tipo = document.getElementById('tipo').value;
+      const idade = document.getElementById('idade').value;
+      const condicao = document.getElementById('condicao').value;
+
+      const roupas = document.querySelectorAll('.roupa-card');
+
+      roupas.forEach(roupa => {
+        const nome = roupa.querySelector('h4').textContent.toLowerCase();
+        const tipoR = roupa.dataset.tipo;
+        const idadeR = roupa.dataset.idade;
+        const condicaoR = roupa.dataset.condicao;
+
+        const matchPesquisa = nome.includes(pesquisa);
+        const matchTipo = tipo === "" || tipo === tipoR;
+        const matchIdade = idade === "" || idade === idadeR;
+        const matchCondicao = condicao === "" || condicao === condicaoR;
+
+        if (matchPesquisa && matchTipo && matchIdade && matchCondicao) {
+          roupa.style.display = "block";
+        } else {
+          roupa.style.display = "none";
+        }
+      });
+    }
+  </script>
 </body>
 </html>
