@@ -1,9 +1,8 @@
-/* ========== PALETTE CHOSEN ========== */
 :root{
-  --bg: #a1cd85;        /* fundo geral */
+  --bg: #cdcfc0;        /* fundo geral (voltou à cor anterior) */
   --card: #f1ebe5;      /* fundo de cards/seções */
   --primary: #f1ebe5;   /* header / barra superior */
-  --accent: #a1cd85;    /* cor de botões/links */
+  --accent: #cdcfc0;    /* cor de botões/links */
   --muted: #f1ebe5;     /* separadores / fundos leves */
   --text: #423f32;      /* texto principal */
   --small: 14px;
@@ -29,27 +28,13 @@ header{
   z-index:100;
   box-shadow: 0 1px 0 rgba(0,0,0,0.04);
 }
-
-/* Marca/site title — mantém o h1 da marca separado */
-header .site-brand h1{
+header h1{
   margin:0;
   font-size:32px;
   text-transform:uppercase;
   letter-spacing:6px;
   color: var(--text);
-  line-height:1.2;
   font-family: 'Playfair Display', serif;
-}
-
-/* Título da página (ex: CARDÁPIO, ROUPAS INFANTIS) — visual igual, mas não é a marca */
-header .page-title{
-  margin:12px 0 0;
-  font-size:32px;
-  font-family: 'Playfair Display', serif;
-  text-transform:uppercase;
-  letter-spacing:6px;
-  color:var(--text);
-  line-height:1.2;
 }
 
 /* NAV */
@@ -97,47 +82,4 @@ main{
   font-family: 'Playfair Display', serif;
   letter-spacing:5px;
   text-transform:uppercase;
-  margin-top:0;
-  color:var(--text);
-}
-
-/* LISTAS */
-ul.clean{padding-left:1rem}
-
-/* BOTÕES */
-.btn{
-  display:inline-block;
-  background:var(--accent);
-  color:#fff;
-  padding:10px 14px;
-  border-radius:10px;
-  text-decoration:none;
-  font-weight:700;
-  margin-top:10px;
-}
-
-/* IMAGENS */
-img{
-  max-width:90%;
-  height:auto;
-  border-radius:10px;
-  border:1px solid #bfbfaf;
-  box-shadow: 0 8px 20px rgba(11,12,15,0.05);
-  display:block;
-  margin:auto;
-}
-
-/* FOOTER */
-footer{
-  text-align:center;
-  padding:18px 10px;
-  color:#666;
-  font-size:13px;
-  margin-top:20px;
-  background:var(--primary);
-  border-top:1px solid var(--muted);
-}
-
-/* RESPONSIVE */
-@media (max-width:720px){
-  header .site-brand h1{font-size:22px;lette
+  m
