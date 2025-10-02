@@ -6,71 +6,11 @@
   <title>Roupas Infantis - Doce Infância</title>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
-  <style>
-    /* estilos locais (filtros e cards) */
-    .filtros {
-      background: var(--card);
-      padding: 15px;
-      border-radius: 10px;
-      margin-bottom: 20px;
-    }
-    .filtros-opcoes {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 20px;
-      margin-bottom: 10px;
-    }
-    .filtros-opcoes div {
-      background: var(--bg);
-      padding: 10px;
-      border-radius: 8px;
-    }
-    .filtros-opcoes button {
-      background: var(--accent);
-      border: none;
-      color: var(--text);
-      padding: 6px 10px;
-      margin: 4px;
-      border-radius: 6px;
-      cursor: pointer;
-    }
-    .filtros-opcoes button:hover {
-      background: #8ab66f;
-    }
-    .roupas-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-      gap: 20px;
-    }
-    .roupa-card {
-      background: var(--card);
-      border: 1px solid var(--muted);
-      border-radius: 10px;
-      padding: 12px;
-      text-align: center;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.08);
-    }
-    .roupa-card img {
-      max-width: 100%;
-      border-radius: 8px;
-    }
-    .roupa-card h4 {
-      margin: 10px 0 5px;
-      font-size: 18px;
-      color: var(--text);
-    }
-    .roupa-card p {
-      font-size: var(--small);
-      color: #666;
-    }
-  </style>
 </head>
 <body>
   <header>
-    <!-- marca separado em uma div para não ser substituída -->
-    <div class="site-brand">
-      <h1>DOCE INFÂNCIA</h1>
-    </div>
+    <!-- só o título da página -->
+    <h1>ROUPAS INFANTIS</h1>
 
     <nav>
       <ul>
@@ -82,140 +22,15 @@
         <li><a href="fotos.html">Fotos</a></li>
       </ul>
     </nav>
-
-    <!-- título da página — distinto da marca -->
-    <h2 class="page-title">ROUPAS INFANTIS</h2>
   </header>
 
   <main>
-    <!-- Filtros -->
-    <div class="filtros">
-      <h3>Filtros</h3>
-      <div class="filtros-opcoes">
-        <div>
-          <strong>Faixa Etária:</strong><br>
-          <button onclick="setFiltro('idade','primeiros')">Primeiros meses</button>
-          <button onclick="setFiltro('idade','0-2')">0-2 anos</button>
-          <button onclick="setFiltro('idade','3-5')">3-5 anos</button>
-          <button onclick="setFiltro('idade','6-10')">6-10 anos</button>
-          <button onclick="setFiltro('idade','11-14')">11-14 anos</button>
-        </div>
-        <div>
-          <strong>Tipo de peça:</strong><br>
-          <button onclick="setFiltro('tipo','camiseta')">Camiseta</button>
-          <button onclick="setFiltro('tipo','vestido')">Vestido</button>
-          <button onclick="setFiltro('tipo','calça')">Calça</button>
-          <button onclick="setFiltro('tipo','shorts')">Shorts</button>
-          <button onclick="setFiltro('tipo','jaqueta')">Jaqueta</button>
-        </div>
-        <div>
-          <strong>Condição:</strong><br>
-          <button onclick="setFiltro('condicao','novo')">Novo</button>
-          <button onclick="setFiltro('condicao','usado')">Usado</button>
-        </div>
-        <div>
-          <strong>Faixa de preço:</strong><br>
-          <button onclick="setFiltro('preco','0-50')">Até R$50</button>
-          <button onclick="setFiltro('preco','51-100')">R$51 - R$100</button>
-          <button onclick="setFiltro('preco','101-200')">R$101 - R$200</button>
-        </div>
-      </div>
-      <input type="text" id="pesquisa" placeholder="Pesquisar peça..." onkeyup="filtrarRoupas()">
-    </div>
-
-    <!-- Produtos (exemplos) -->
-    <div class="roupas-grid" id="listaRoupas">
-      <div class="roupa-card" data-tipo="camiseta" data-idade="3-5" data-condicao="novo" data-preco="51-100">
-        <img src="https://via.placeholder.com/200x200.png?text=Camiseta+Azul" alt="Camiseta Azul">
-        <h4>Camiseta Azul</h4>
-        <p>3-5 anos | Novo | R$80</p>
-      </div>
-      <div class="roupa-card" data-tipo="vestido" data-idade="0-2" data-condicao="usado" data-preco="0-50">
-        <img src="https://via.placeholder.com/200x200.png?text=Vestido+Rosa" alt="Vestido Rosa">
-        <h4>Vestido Rosa</h4>
-        <p>0-2 anos | Usado | R$40</p>
-      </div>
-      <div class="roupa-card" data-tipo="calça" data-idade="6-10" data-condicao="novo" data-preco="101-200">
-        <img src="https://via.placeholder.com/200x200.png?text=Calça+Jeans" alt="Calça Jeans">
-        <h4>Calça Jeans</h4>
-        <p>6-10 anos | Novo | R$120</p>
-      </div>
-      <div class="roupa-card" data-tipo="shorts" data-idade="11-14" data-condicao="usado" data-preco="51-100">
-        <img src="https://via.placeholder.com/200x200.png?text=Shorts+Jeans" alt="Shorts Jeans">
-        <h4>Shorts Jeans</h4>
-        <p>11-14 anos | Usado | R$70</p>
-      </div>
-      <div class="roupa-card" data-tipo="jaqueta" data-idade="6-10" data-condicao="novo" data-preco="101-200">
-        <img src="https://via.placeholder.com/200x200.png?text=Jaqueta+Moletom" alt="Jaqueta de Moletom">
-        <h4>Jaqueta de Moletom</h4>
-        <p>6-10 anos | Novo | R$150</p>
-      </div>
-      <div class="roupa-card" data-tipo="camiseta" data-idade="11-14" data-condicao="usado" data-preco="0-50">
-        <img src="https://via.placeholder.com/200x200.png?text=Camiseta+Branca" alt="Camiseta Branca">
-        <h4>Camiseta Branca</h4>
-        <p>11-14 anos | Usado | R$35</p>
-      </div>
-      <div class="roupa-card" data-tipo="vestido" data-idade="3-5" data-condicao="novo" data-preco="101-200">
-        <img src="https://via.placeholder.com/200x200.png?text=Vestido+Florido" alt="Vestido Florido">
-        <h4>Vestido Florido</h4>
-        <p>3-5 anos | Novo | R$110</p>
-      </div>
-      <div class="roupa-card" data-tipo="calça" data-idade="0-2" data-condicao="usado" data-preco="0-50">
-        <img src="https://via.placeholder.com/200x200.png?text=Calça+Moletom" alt="Calça Moletom">
-        <h4>Calça Moletom</h4>
-        <p>0-2 anos | Usado | R$45</p>
-      </div>
-      <div class="roupa-card" data-tipo="shorts" data-idade="3-5" data-condicao="novo" data-preco="51-100">
-        <img src="https://via.placeholder.com/200x200.png?text=Shorts+Colorido" alt="Shorts Colorido">
-        <h4>Shorts Colorido</h4>
-        <p>3-5 anos | Novo | R$90</p>
-      </div>
-      <div class="roupa-card" data-tipo="jaqueta" data-idade="11-14" data-condicao="usado" data-preco="101-200">
-        <img src="https://via.placeholder.com/200x200.png?text=Jaqueta+Jeans" alt="Jaqueta Jeans">
-        <h4>Jaqueta Jeans</h4>
-        <p>11-14 anos | Usado | R$150</p>
-      </div>
-    </div>
+    <!-- aqui seguem os filtros e os produtos -->
+    <p>Conteúdo da página roupas infantis aqui...</p>
   </main>
 
   <footer>
     <p>© 2025 Doce Infância | Instagram: @DoceInfância_ | WhatsApp: (00) 00000-0000</p>
   </footer>
-
-  <script>
-    let filtros = {tipo:"", idade:"", condicao:"", preco:""};
-
-    function setFiltro(campo, valor) {
-      filtros[campo] = valor;
-      filtrarRoupas();
-    }
-
-    function filtrarRoupas() {
-      const pesquisa = document.getElementById('pesquisa').value.toLowerCase();
-      const roupas = document.querySelectorAll('.roupa-card');
-
-      roupas.forEach(roupa => {
-        const nome = roupa.querySelector('h4').textContent.toLowerCase();
-        const tipoR = roupa.dataset.tipo;
-        const idadeR = roupa.dataset.idade;
-        const condicaoR = roupa.dataset.condicao;
-        const precoR = roupa.dataset.preco;
-
-        const matchPesquisa = nome.includes(pesquisa);
-        const matchTipo = filtros.tipo === "" || filtros.tipo === tipoR;
-        const matchIdade = filtros.idade === "" || filtros.idade === idadeR;
-        const matchCondicao = filtros.condicao === "" || filtros.condicao === condicaoR;
-        const matchPreco = filtros.preco === "" || filtros.preco === precoR;
-
-        if (matchPesquisa && matchTipo && matchIdade && matchCondicao && matchPreco) {
-          roupa.style.display = "block";
-        } else {
-          roupa.style.display = "none";
-        }
-      });
-    }
-
-    // (opcional) limpar filtros — se quiseres, posso adicionar botões "Limpar filtros"
-  </script>
 </body>
 </html>
