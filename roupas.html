@@ -7,6 +7,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
   <style>
+    /* estilos locais (filtros e cards) */
     .filtros {
       background: var(--card);
       padding: 15px;
@@ -66,7 +67,11 @@
 </head>
 <body>
   <header>
-    <h1>DOCE INFÂNCIA</h1>
+    <!-- marca separado em uma div para não ser substituída -->
+    <div class="site-brand">
+      <h1>DOCE INFÂNCIA</h1>
+    </div>
+
     <nav>
       <ul>
         <li><a href="index.html">Início</a></li>
@@ -77,7 +82,9 @@
         <li><a href="fotos.html">Fotos</a></li>
       </ul>
     </nav>
-    <h1>ROUPAS INFANTIS</h1>
+
+    <!-- título da página — distinto da marca -->
+    <h2 class="page-title">ROUPAS INFANTIS</h2>
   </header>
 
   <main>
@@ -98,6 +105,8 @@
           <button onclick="setFiltro('tipo','camiseta')">Camiseta</button>
           <button onclick="setFiltro('tipo','vestido')">Vestido</button>
           <button onclick="setFiltro('tipo','calça')">Calça</button>
+          <button onclick="setFiltro('tipo','shorts')">Shorts</button>
+          <button onclick="setFiltro('tipo','jaqueta')">Jaqueta</button>
         </div>
         <div>
           <strong>Condição:</strong><br>
@@ -114,22 +123,57 @@
       <input type="text" id="pesquisa" placeholder="Pesquisar peça..." onkeyup="filtrarRoupas()">
     </div>
 
-    <!-- Produtos -->
+    <!-- Produtos (exemplos) -->
     <div class="roupas-grid" id="listaRoupas">
       <div class="roupa-card" data-tipo="camiseta" data-idade="3-5" data-condicao="novo" data-preco="51-100">
-        <img src="https://via.placeholder.com/200x200.png?text=Camiseta" alt="Camiseta Azul">
+        <img src="https://via.placeholder.com/200x200.png?text=Camiseta+Azul" alt="Camiseta Azul">
         <h4>Camiseta Azul</h4>
         <p>3-5 anos | Novo | R$80</p>
       </div>
       <div class="roupa-card" data-tipo="vestido" data-idade="0-2" data-condicao="usado" data-preco="0-50">
-        <img src="https://via.placeholder.com/200x200.png?text=Vestido" alt="Vestido Rosa">
+        <img src="https://via.placeholder.com/200x200.png?text=Vestido+Rosa" alt="Vestido Rosa">
         <h4>Vestido Rosa</h4>
         <p>0-2 anos | Usado | R$40</p>
       </div>
       <div class="roupa-card" data-tipo="calça" data-idade="6-10" data-condicao="novo" data-preco="101-200">
-        <img src="https://via.placeholder.com/200x200.png?text=Calça" alt="Calça Jeans">
+        <img src="https://via.placeholder.com/200x200.png?text=Calça+Jeans" alt="Calça Jeans">
         <h4>Calça Jeans</h4>
         <p>6-10 anos | Novo | R$120</p>
+      </div>
+      <div class="roupa-card" data-tipo="shorts" data-idade="11-14" data-condicao="usado" data-preco="51-100">
+        <img src="https://via.placeholder.com/200x200.png?text=Shorts+Jeans" alt="Shorts Jeans">
+        <h4>Shorts Jeans</h4>
+        <p>11-14 anos | Usado | R$70</p>
+      </div>
+      <div class="roupa-card" data-tipo="jaqueta" data-idade="6-10" data-condicao="novo" data-preco="101-200">
+        <img src="https://via.placeholder.com/200x200.png?text=Jaqueta+Moletom" alt="Jaqueta de Moletom">
+        <h4>Jaqueta de Moletom</h4>
+        <p>6-10 anos | Novo | R$150</p>
+      </div>
+      <div class="roupa-card" data-tipo="camiseta" data-idade="11-14" data-condicao="usado" data-preco="0-50">
+        <img src="https://via.placeholder.com/200x200.png?text=Camiseta+Branca" alt="Camiseta Branca">
+        <h4>Camiseta Branca</h4>
+        <p>11-14 anos | Usado | R$35</p>
+      </div>
+      <div class="roupa-card" data-tipo="vestido" data-idade="3-5" data-condicao="novo" data-preco="101-200">
+        <img src="https://via.placeholder.com/200x200.png?text=Vestido+Florido" alt="Vestido Florido">
+        <h4>Vestido Florido</h4>
+        <p>3-5 anos | Novo | R$110</p>
+      </div>
+      <div class="roupa-card" data-tipo="calça" data-idade="0-2" data-condicao="usado" data-preco="0-50">
+        <img src="https://via.placeholder.com/200x200.png?text=Calça+Moletom" alt="Calça Moletom">
+        <h4>Calça Moletom</h4>
+        <p>0-2 anos | Usado | R$45</p>
+      </div>
+      <div class="roupa-card" data-tipo="shorts" data-idade="3-5" data-condicao="novo" data-preco="51-100">
+        <img src="https://via.placeholder.com/200x200.png?text=Shorts+Colorido" alt="Shorts Colorido">
+        <h4>Shorts Colorido</h4>
+        <p>3-5 anos | Novo | R$90</p>
+      </div>
+      <div class="roupa-card" data-tipo="jaqueta" data-idade="11-14" data-condicao="usado" data-preco="101-200">
+        <img src="https://via.placeholder.com/200x200.png?text=Jaqueta+Jeans" alt="Jaqueta Jeans">
+        <h4>Jaqueta Jeans</h4>
+        <p>11-14 anos | Usado | R$150</p>
       </div>
     </div>
   </main>
@@ -170,6 +214,8 @@
         }
       });
     }
+
+    // (opcional) limpar filtros — se quiseres, posso adicionar botões "Limpar filtros"
   </script>
 </body>
 </html>
