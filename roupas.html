@@ -64,6 +64,7 @@
           <option value="usado">Usado</option>
         </select>
       </div>
+
       <div class="roupas-grid" id="roupas-list">
         <div class="roupa" data-tipo="camiseta" data-idade="3-5" data-condicao="novo">
           <h3>Camiseta Azul</h3><span>3-5 anos | Novo</span>
@@ -118,17 +119,22 @@
 
       roupas.forEach(r=>{
         const nome = r.querySelector("h3").textContent.toLowerCase();
-        const mt = r.dataset.tipo, mi = r.dataset.idade, mc = r.dataset.condicao;
+        const mt = r.dataset.tipo;
+        const mi = r.dataset.idade;
+        const mc = r.dataset.condicao;
 
         if((!termo || nome.includes(termo)) &&
            (!t || mt===t) &&
            (!i || mi===i) &&
            (!c || mc===c)){
           r.style.display="block";
-        }else{
+        } else {
           r.style.display="none";
         }
       });
     }
 
-    [search,tipo,idade,condicao].forEach(el=>el.addEventListe
+    [search,tipo,idade,condicao].forEach(el=>el.addEventListener("input",filtrar));
+  </script>
+</body>
+</html>
