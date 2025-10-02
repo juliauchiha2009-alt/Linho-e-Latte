@@ -6,6 +6,22 @@
   <title>Roupas Infantis - Doce Infância</title>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
+  <style>
+    .filters { display:flex; flex-wrap:wrap; gap:10px; margin-bottom:20px; }
+    .filters input, .filters select {
+      padding:8px; border-radius:6px; border:1px solid #aaa; font-size:14px;
+    }
+    .roupas-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:16px; }
+    .roupa {
+      background:var(--card);
+      padding:16px; border-radius:10px;
+      box-shadow:0 4px 12px rgba(0,0,0,0.06);
+      text-align:center;
+      font-size:15px;
+    }
+    .roupa h3{margin:8px 0;font-size:18px}
+    .roupa span{display:block;color:#555;font-size:14px}
+  </style>
 </head>
 <body>
   <header>
@@ -23,15 +39,96 @@
   </header>
 
   <main>
-    <!-- Aqui vai todo o conteúdo com filtros e roupas (aquele código completo que já fiz com 10 itens) -->
     <section class="section">
-      <h2>Roupas disponíveis</h2>
-      <p>Aqui você pode navegar, pesquisar e filtrar roupas infantis.</p>
+      <h2>Encontre a peça ideal</h2>
+      <div class="filters">
+        <input type="text" id="search" placeholder="Pesquisar peça...">
+        <select id="tipo">
+          <option value="">Tipo de peça</option>
+          <option value="camiseta">Camiseta</option>
+          <option value="vestido">Vestido</option>
+          <option value="calça">Calça</option>
+          <option value="shorts">Shorts</option>
+          <option value="jaqueta">Jaqueta</option>
+        </select>
+        <select id="idade">
+          <option value="">Faixa etária</option>
+          <option value="0-2">0-2 anos</option>
+          <option value="3-5">3-5 anos</option>
+          <option value="6-10">6-10 anos</option>
+          <option value="11-14">11-14 anos</option>
+        </select>
+        <select id="condicao">
+          <option value="">Condição</option>
+          <option value="novo">Novo</option>
+          <option value="usado">Usado</option>
+        </select>
+      </div>
+      <div class="roupas-grid" id="roupas-list">
+        <div class="roupa" data-tipo="camiseta" data-idade="3-5" data-condicao="novo">
+          <h3>Camiseta Azul</h3><span>3-5 anos | Novo</span>
+        </div>
+        <div class="roupa" data-tipo="vestido" data-idade="0-2" data-condicao="usado">
+          <h3>Vestido Rosa</h3><span>0-2 anos | Usado</span>
+        </div>
+        <div class="roupa" data-tipo="calça" data-idade="6-10" data-condicao="novo">
+          <h3>Calça Jeans</h3><span>6-10 anos | Novo</span>
+        </div>
+        <div class="roupa" data-tipo="shorts" data-idade="3-5" data-condicao="usado">
+          <h3>Shorts Verde</h3><span>3-5 anos | Usado</span>
+        </div>
+        <div class="roupa" data-tipo="jaqueta" data-idade="6-10" data-condicao="novo">
+          <h3>Jaqueta Vermelha</h3><span>6-10 anos | Novo</span>
+        </div>
+        <div class="roupa" data-tipo="vestido" data-idade="11-14" data-condicao="usado">
+          <h3>Vestido Florido</h3><span>11-14 anos | Usado</span>
+        </div>
+        <div class="roupa" data-tipo="camiseta" data-idade="0-2" data-condicao="novo">
+          <h3>Camiseta Branca</h3><span>0-2 anos | Novo</span>
+        </div>
+        <div class="roupa" data-tipo="calça" data-idade="3-5" data-condicao="usado">
+          <h3>Calça Moletom</h3><span>3-5 anos | Usado</span>
+        </div>
+        <div class="roupa" data-tipo="shorts" data-idade="11-14" data-condicao="novo">
+          <h3>Shorts Jeans</h3><span>11-14 anos | Novo</span>
+        </div>
+        <div class="roupa" data-tipo="jaqueta" data-idade="0-2" data-condicao="usado">
+          <h3>Jaqueta Amarela</h3><span>0-2 anos | Usado</span>
+        </div>
+      </div>
     </section>
   </main>
 
   <footer>
     <p>© 2025 Doce Infância | Instagram: @DoceInfância_ | WhatsApp: (00) 00000-0000</p>
   </footer>
-</body>
-</html>
+
+  <script>
+    const search = document.getElementById("search");
+    const tipo = document.getElementById("tipo");
+    const idade = document.getElementById("idade");
+    const condicao = document.getElementById("condicao");
+    const roupas = document.querySelectorAll(".roupa");
+
+    function filtrar(){
+      const termo = search.value.toLowerCase();
+      const t = tipo.value;
+      const i = idade.value;
+      const c = condicao.value;
+
+      roupas.forEach(r=>{
+        const nome = r.querySelector("h3").textContent.toLowerCase();
+        const mt = r.dataset.tipo, mi = r.dataset.idade, mc = r.dataset.condicao;
+
+        if((!termo || nome.includes(termo)) &&
+           (!t || mt===t) &&
+           (!i || mi===i) &&
+           (!c || mc===c)){
+          r.style.display="block";
+        }else{
+          r.style.display="none";
+        }
+      });
+    }
+
+    [search,tipo,idade,condicao].forEach(el=>el.addEventListe
