@@ -137,7 +137,7 @@ img{
 }
 
 .qr-code {
-  width: 150px;   /* ajuste o tamanho conforme preferir */
+  width: 200px;   /* ajuste o tamanho conforme preferir */
   height: auto;
   display: block;
   margin: 20px auto;
