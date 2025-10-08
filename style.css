@@ -136,6 +136,25 @@ img{
   margin:auto;
 }
 
+.qr-code {
+  width: 150px;   /* ajuste o tamanho conforme preferir */
+  height: auto;
+  display: block;
+  margin: 20px auto;
+}
+
+.header-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px; /* espaço entre o logo e o texto */
+}
+
+.header-logo img.logo {
+  height: 50px; /* tamanho aproximado do título */
+  width: auto;
+}
+
 /* FOOTER */
 footer{
   text-align:center;
