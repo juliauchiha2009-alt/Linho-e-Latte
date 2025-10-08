@@ -4,137 +4,39 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Roupas Infantis - Linho & Latte</title>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
-  <style>
-    .filters { display:flex; flex-wrap:wrap; gap:10px; margin-bottom:20px; }
-    .filters input, .filters select {
-      padding:8px; border-radius:6px; border:1px solid #aaa; font-size:14px;
-    }
-    .roupas-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:16px; }
-    .roupa {
-      background:var(--card);
-      padding:16px; border-radius:10px;
-      box-shadow:0 4px 12px rgba(0,0,0,0.06);
-      text-align:center;
-      font-size:15px;
-    }
-    .roupa h3{margin:8px 0;font-size:18px}
-    .roupa span{display:block;color:#555;font-size:14px}
-  </style>
 </head>
 <body>
   <header>
- <h1>ROUPAS INFANTIS</h1>
-  <nav>
-      <ul>
-        <li><a href="index.html">Início</a></li>
-        <li><a href="cardapio.html">Cardápio</a></li>
-        <li><a href="roupas.html" class="active">Roupas infantis</a></li>
-        <li><a href="contribuir.html">Quero contribuir</a></li>
-        <li><a href="sobre.html">Sobre nós</a></li>
-        <li><a href="fotos.html">Fotos</a></li>
-      </ul>
-    </nav>
+    <div class="header-container">
+      <div class="logo-titulo">
+        <img src="Linho & Latte 2.png" alt="Logo Linho & Latte" class="logo-topo">
+        <h1>Linho & Latte</h1>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="index.html">Início</a></li>
+          <li><a href="cardapio.html">Cardápio</a></li>
+          <li><a href="roupas.html" class="active">Roupas infantis</a></li>
+          <li><a href="contribuir.html">Quero contribuir</a></li>
+          <li><a href="sobre.html">Sobre nós</a></li>
+          <li><a href="fotos.html">Fotos</a></li>
+        </ul>
+      </nav>
+    </div>
   </header>
 
   <main>
     <section class="section">
-      <h2>Encontre a peça ideal</h2>
-      <div class="filters">
-        <input type="text" id="search" placeholder="Pesquisar peça...">
-        <select id="tipo">
-          <option value="">Tipo de peça</option>
-          <option value="camiseta">Camiseta</option>
-          <option value="vestido">Vestido</option>
-          <option value="calça">Calça</option>
-          <option value="shorts">Shorts</option>
-          <option value="jaqueta">Jaqueta</option>
-        </select>
-        <select id="idade">
-          <option value="">Faixa etária</option>
-          <option value="0-2">0-2 anos</option>
-          <option value="3-5">3-5 anos</option>
-          <option value="6-10">6-10 anos</option>
-          <option value="11-14">11-14 anos</option>
-        </select>
-        <select id="condicao">
-          <option value="">Condição</option>
-          <option value="novo">Novo</option>
-          <option value="usado">Usado</option>
-        </select>
-      </div>
-
-      <div class="roupas-grid" id="roupas-list">
-        <div class="roupa" data-tipo="camiseta" data-idade="3-5" data-condicao="novo">
-          <h3>Camiseta Azul</h3><span>3-5 anos | Novo</span>
-        </div>
-        <div class="roupa" data-tipo="vestido" data-idade="0-2" data-condicao="usado">
-          <h3>Vestido Rosa</h3><span>0-2 anos | Usado</span>
-        </div>
-        <div class="roupa" data-tipo="calça" data-idade="6-10" data-condicao="novo">
-          <h3>Calça Jeans</h3><span>6-10 anos | Novo</span>
-        </div>
-        <div class="roupa" data-tipo="shorts" data-idade="3-5" data-condicao="usado">
-          <h3>Shorts Verde</h3><span>3-5 anos | Usado</span>
-        </div>
-        <div class="roupa" data-tipo="jaqueta" data-idade="6-10" data-condicao="novo">
-          <h3>Jaqueta Vermelha</h3><span>6-10 anos | Novo</span>
-        </div>
-        <div class="roupa" data-tipo="vestido" data-idade="11-14" data-condicao="usado">
-          <h3>Vestido Florido</h3><span>11-14 anos | Usado</span>
-        </div>
-        <div class="roupa" data-tipo="camiseta" data-idade="0-2" data-condicao="novo">
-          <h3>Camiseta Branca</h3><span>0-2 anos | Novo</span>
-        </div>
-        <div class="roupa" data-tipo="calça" data-idade="3-5" data-condicao="usado">
-          <h3>Calça Moletom</h3><span>3-5 anos | Usado</span>
-        </div>
-        <div class="roupa" data-tipo="shorts" data-idade="11-14" data-condicao="novo">
-          <h3>Shorts Jeans</h3><span>11-14 anos | Novo</span>
-        </div>
-        <div class="roupa" data-tipo="jaqueta" data-idade="0-2" data-condicao="usado">
-          <h3>Jaqueta Amarela</h3><span>0-2 anos | Usado</span>
-        </div>
-      </div>
+      <h2>Doação de Roupas Infantis</h2>
+      <p>A Linho & Latte promove a doação de roupas infantis em bom estado para famílias em vulnerabilidade. Toda contribuição é bem-vinda — e transforma vidas.</p>
+      <p>As doações podem ser feitas diretamente no nosso espaço, com todo carinho e cuidado que as crianças merecem.</p>
     </section>
   </main>
 
   <footer>
     <p>© 2025 Linho & Latte | Instagram: @linhoelatte | WhatsApp: (00) 00000-0000</p>
   </footer>
-
-  <script>
-    const search = document.getElementById("search");
-    const tipo = document.getElementById("tipo");
-    const idade = document.getElementById("idade");
-    const condicao = document.getElementById("condicao");
-    const roupas = document.querySelectorAll(".roupa");
-
-    function filtrar(){
-      const termo = search.value.toLowerCase();
-      const t = tipo.value;
-      const i = idade.value;
-      const c = condicao.value;
-
-      roupas.forEach(r=>{
-        const nome = r.querySelector("h3").textContent.toLowerCase();
-        const mt = r.dataset.tipo;
-        const mi = r.dataset.idade;
-        const mc = r.dataset.condicao;
-
-        if((!termo || nome.includes(termo)) &&
-           (!t || mt===t) &&
-           (!i || mi===i) &&
-           (!c || mc===c)){
-          r.style.display="block";
-        } else {
-          r.style.display="none";
-        }
-      });
-    }
-
-    [search,tipo,idade,condicao].forEach(el=>el.addEventListener("input",filtrar));
-  </script>
 </body>
 </html>
