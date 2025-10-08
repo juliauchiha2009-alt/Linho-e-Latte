@@ -143,18 +143,6 @@ img{
   margin: 20px auto;
 }
 
-.header-logo {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px; /* espaço entre o logo e o texto */
-}
-
-.header-logo img.logo {
-  height: 50px; /* tamanho aproximado do título */
-  width: auto;
-}
-
 /* FOOTER */
 footer{
   text-align:center;
