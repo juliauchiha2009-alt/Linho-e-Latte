@@ -1,107 +1,220 @@
-/* ======== ESTILO GERAL ======== */
-body {
-  font-family: 'Montserrat', sans-serif;
+/* ---------- CONFIGURAÇÕES GERAIS ---------- */
+* {
   margin: 0;
   padding: 0;
-  background-color: #fdf5e5;
-  color: #3d3a35;
+  box-sizing: border-box;
 }
 
-/* ======== CABEÇALHO ======== */
+body {
+  font-family: 'Montserrat', sans-serif;
+  background-color: #cfd2eb; /* Fundo principal */
+  color: #56362a; /* Cor do texto */
+  line-height: 1.6;
+}
+
+/* ---------- CABEÇALHO ---------- */
 header {
-  background-color: #f9f4ec;
-  text-align: center;
-  padding: 10px 0;
-  border-bottom: 1px solid #ddd;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 15px 0;
+  background-color: #f1ebe5;
+  border-bottom: 1px solid #d5cfc8;
 }
 
-.header-container {
+.logo-container {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 15px;
+  gap: 10px;
 }
 
-.logo-topo {
-  width: 60px;
-  height: auto;
+.logo {
+  height: 70px;
+  width: auto;
 }
 
-h1 {
+header h1 {
   font-family: 'Playfair Display', serif;
-  font-size: 28px;
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: #56362a;
+  text-transform: uppercase;
   letter-spacing: 2px;
-  color: #3d3a35;
-  margin: 0;
 }
 
-/* ======== MENU DE NAVEGAÇÃO ======== */
+/* ---------- NAVEGAÇÃO ---------- */
 nav ul {
   list-style: none;
-  padding: 0;
-  margin: 15px 0 0;
   display: flex;
   justify-content: center;
   gap: 25px;
+  padding: 0;
+  margin-top: 10px;
 }
 
 nav ul li a {
   text-decoration: none;
-  color: #3d3a35;
-  font-weight: bold;
-  transition: 0.3s;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  color: #56362a;
+  transition: color 0.3s ease, transform 0.2s ease;
 }
 
-nav ul li a:hover {
-  color: #6b574e;
-}
-
+nav ul li a:hover,
 nav ul li a.active {
-  color: #6b574e;
+  color: #7c4a27;
+  transform: scale(1.05);
 }
 
-/* ======== CONTEÚDO PRINCIPAL ======== */
+/* ---------- SEÇÕES E CARDS ---------- */
 main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+}
+
+.section,
+.section-card {
+  background-color: #f1ebe5; /* Seções e cards */
+  border-radius: 15px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  padding: 30px 40px;
+  margin: 25px 0;
+  width: 80%;
   max-width: 900px;
-  margin: 50px auto;
-  background-color: #f9f4ec;
-  padding: 30px;
-  border-radius: 12px;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-  text-align: justify;
 }
 
-h2 {
+.section h2,
+.section-card h2 {
   font-family: 'Playfair Display', serif;
-  color: #3d3a35;
-  letter-spacing: 2px;
+  font-size: 1.8rem;
+  color: #56362a;
   text-align: center;
+  margin-bottom: 15px;
+  letter-spacing: 1px;
 }
 
-p {
-  line-height: 1.7;
-  font-size: 1.05em;
+/* ---------- TEXTO ---------- */
+p,
+li {
+  font-size: 1rem;
+  color: #56362a;
+}
+
+ul {
+  margin-left: 20px;
+  list-style: disc;
+}
+
+/* ---------- BOTÕES ---------- */
+button,
+a.button {
+  background-color: #56362a;
+  color: #f1ebe5;
+  padding: 10px 20px;
+  border-radius: 6px;
+  text-decoration: none;
+  border: none;
+  font-weight: 600;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+button:hover,
+a.button:hover {
+  background-color: #7c4a27;
+  transform: scale(1.05);
+}
+
+/* ---------- RODAPÉ ---------- */
+footer {
+  text-align: center;
+  padding: 20px;
+  font-size: 0.9rem;
+  background-color: #f1ebe5;
+  color: #56362a;
+  border-top: 1px solid #d5cfc8;
+}
+
+/* ---------- IMAGENS ---------- */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 20px auto;
+  border-radius: 10px;
+}
+
+/* ---------- LINKS ---------- */
+a {
+  color: #56362a;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #7c4a27;
+}
+
+/* ---------- FILTROS (se houver busca) ---------- */
+input[type="text"],
+input[type="search"] {
+  padding: 8px 12px;
+  border: 1px solid #c5bfb6;
+  border-radius: 6px;
+  background-color: #fff;
+  color: #56362a;
+  margin-bottom: 15px;
+  width: 100%;
+  max-width: 400px;
+  outline: none;
+}
+
+input[type="text"]:focus,
+input[type="search"]:focus {
+  border-color: #7c4a27;
+  box-shadow: 0 0 5px rgba(124, 74, 39, 0.4);
+}
+
+/* ---------- TÍTULOS ESPECIAIS (página inicial) ---------- */
+.hero {
+  text-align: center;
+  background-color: #f1ebe5;
+  padding: 60px 20px;
+  border-radius: 20px;
+  margin-top: 40px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.hero h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 2rem;
+  color: #56362a;
   margin-bottom: 15px;
 }
 
-/* ======== IMAGENS ======== */
-.imagem-cafeteria {
-  text-align: center;
-  margin-top: 40px;
+.hero p {
+  font-family: 'Montserrat', sans-serif;
+  color: #56362a;
+  max-width: 700px;
+  margin: 0 auto;
 }
 
-.imagem-cafeteria img {
-  width: 70%;
-  border-radius: 10px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-}
+/* ---------- RESPONSIVIDADE ---------- */
+@media (max-width: 768px) {
+  nav ul {
+    flex-wrap: wrap;
+    gap: 15px;
+  }
 
-/* ======== RODAPÉ ======== */
-footer {
-  background-color: #f9f4ec;
-  text-align: center;
-  padding: 20px 0;
-  font-size: 0.9em;
-  border-top: 1px solid #ddd;
-  margin-top: 50px;
+  .section,
+  .section-card {
+    width: 95%;
+    padding: 25px;
+  }
+
+  header h1 {
+    font-size: 1.8rem;
+  }
 }
