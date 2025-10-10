@@ -1,15 +1,24 @@
-/* ---------- CONFIGURAÇÕES GERAIS ---------- */
-* {
+/* ---------- ESTILOS GERAIS ---------- */
+body {
+  font-family: 'Open Sans', sans-serif;
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
+  background-color: #cdcfc0; /* Fundo geral */
+  color: #56362a; /* Cor do texto */
 }
 
-body {
-  font-family: 'Montserrat', sans-serif;
-  background-color: #cfd2eb; /* Fundo principal */
-  color: #56362a; /* Cor do texto */
-  line-height: 1.6;
+h1, h2, h3 {
+  font-family: 'Playfair Display', serif;
+  color: #56362a;
+}
+
+a {
+  color: #56362a;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
 }
 
 /* ---------- CABEÇALHO ---------- */
@@ -17,7 +26,7 @@ header {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 15px 0;
+  padding: 20px 0;
   background-color: #f1ebe5;
   border-bottom: 1px solid #d5cfc8;
 }
@@ -26,115 +35,103 @@ header {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 10px;
+  gap: 12px;
+  margin-bottom: 8px;
 }
 
 .logo {
-  height: 70px;
+  height: 90px; /* Logo aumentada */
   width: auto;
 }
 
 header h1 {
   font-family: 'Playfair Display', serif;
-  font-size: 2.2rem;
+  font-size: 2.4rem;
   font-weight: 700;
   color: #56362a;
   text-transform: uppercase;
   letter-spacing: 2px;
+  margin: 0;
 }
 
-/* ---------- NAVEGAÇÃO ---------- */
+/* ---------- MENU DE NAVEGAÇÃO ---------- */
 nav ul {
   list-style: none;
+  padding: 0;
+  margin: 0;
   display: flex;
   justify-content: center;
+  flex-wrap: wrap;
   gap: 25px;
-  padding: 0;
-  margin-top: 10px;
 }
 
-nav ul li a {
-  text-decoration: none;
-  font-family: 'Montserrat', sans-serif;
+nav a {
   font-weight: 600;
   color: #56362a;
-  transition: color 0.3s ease, transform 0.2s ease;
+  text-transform: capitalize;
 }
 
-nav ul li a:hover,
-nav ul li a.active {
-  color: #7c4a27;
-  transform: scale(1.05);
+nav a:hover {
+  border-bottom: 2px solid #56362a;
 }
 
-/* ---------- SEÇÕES E CARDS ---------- */
+/* ---------- SEÇÕES E CONTEÚDO ---------- */
 main {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  text-align: center;
   padding: 40px 20px;
 }
 
-.section,
-.section-card {
-  background-color: #f1ebe5; /* Seções e cards */
-  border-radius: 15px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-  padding: 30px 40px;
-  margin: 25px 0;
-  width: 80%;
+.section {
+  background-color: #f1ebe5;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  margin: 30px auto;
   max-width: 900px;
 }
 
-.section h2,
-.section-card h2 {
-  font-family: 'Playfair Display', serif;
+.section h2 {
   font-size: 1.8rem;
-  color: #56362a;
-  text-align: center;
   margin-bottom: 15px;
-  letter-spacing: 1px;
 }
 
-/* ---------- TEXTO ---------- */
-p,
-li {
-  font-size: 1rem;
+.section p, 
+.section li {
+  font-size: 1.1rem;
+  line-height: 1.7;
   color: #56362a;
 }
 
-ul {
-  margin-left: 20px;
-  list-style: disc;
+/* ---------- CARDS ---------- */
+.section-card {
+  background-color: #f1ebe5;
+  padding: 25px;
+  border-radius: 12px;
+  margin: 20px auto;
+  max-width: 900px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  text-align: left;
 }
 
-/* ---------- BOTÕES ---------- */
-button,
-a.button {
-  background-color: #56362a;
-  color: #f1ebe5;
-  padding: 10px 20px;
-  border-radius: 6px;
-  text-decoration: none;
-  border: none;
-  font-weight: 600;
-  transition: background-color 0.3s ease, transform 0.2s ease;
+.section-card h2 {
+  color: #56362a;
+  margin-bottom: 12px;
 }
 
-button:hover,
-a.button:hover {
-  background-color: #7c4a27;
-  transform: scale(1.05);
+.section-card p, 
+.section-card li {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #56362a;
 }
 
 /* ---------- RODAPÉ ---------- */
 footer {
+  background-color: #f1ebe5;
   text-align: center;
   padding: 20px;
-  font-size: 0.9rem;
-  background-color: #f1ebe5;
   color: #56362a;
+  font-size: 0.95rem;
   border-top: 1px solid #d5cfc8;
 }
 
@@ -143,78 +140,30 @@ img {
   max-width: 100%;
   height: auto;
   display: block;
-  margin: 20px auto;
+  margin: 0 auto;
   border-radius: 10px;
 }
 
-/* ---------- LINKS ---------- */
-a {
-  color: #56362a;
-  text-decoration: none;
+/* ---------- LINKS ATIVOS ---------- */
+nav a.active {
+  border-bottom: 2px solid #56362a;
 }
 
-a:hover {
-  color: #7c4a27;
-}
-
-/* ---------- FILTROS (se houver busca) ---------- */
-input[type="text"],
-input[type="search"] {
-  padding: 8px 12px;
-  border: 1px solid #c5bfb6;
-  border-radius: 6px;
-  background-color: #fff;
-  color: #56362a;
-  margin-bottom: 15px;
-  width: 100%;
-  max-width: 400px;
-  outline: none;
-}
-
-input[type="text"]:focus,
-input[type="search"]:focus {
-  border-color: #7c4a27;
-  box-shadow: 0 0 5px rgba(124, 74, 39, 0.4);
-}
-
-/* ---------- TÍTULOS ESPECIAIS (página inicial) ---------- */
-.hero {
+/* ---------- FILTROS E BARRAS DE PESQUISA ---------- */
+.search-container {
   text-align: center;
+  margin-bottom: 25px;
+}
+
+.search-container input {
+  padding: 10px 15px;
+  border-radius: 6px;
+  border: 1px solid #b6b6a5;
+  width: 280px;
   background-color: #f1ebe5;
-  padding: 60px 20px;
-  border-radius: 20px;
-  margin-top: 40px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-}
-
-.hero h2 {
-  font-family: 'Playfair Display', serif;
-  font-size: 2rem;
   color: #56362a;
-  margin-bottom: 15px;
 }
 
-.hero p {
-  font-family: 'Montserrat', sans-serif;
-  color: #56362a;
-  max-width: 700px;
-  margin: 0 auto;
-}
-
-/* ---------- RESPONSIVIDADE ---------- */
-@media (max-width: 768px) {
-  nav ul {
-    flex-wrap: wrap;
-    gap: 15px;
-  }
-
-  .section,
-  .section-card {
-    width: 95%;
-    padding: 25px;
-  }
-
-  header h1 {
-    font-size: 1.8rem;
-  }
+.search-container input::placeholder {
+  color: #937e6f;
 }
