@@ -98,42 +98,62 @@ p {
    CARDÁPIO
 =================================*/
 
+/* ===============================
+   CARDÁPIO ESTILIZADO
+=================================*/
+
 .cardapio {
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  gap: 2.5rem;
 }
 
 .cardapio-categoria {
   background-color: var(--cor-section);
   border-radius: 10px;
-  padding: 1.5rem;
+  padding: 1.5rem 2rem;
   box-shadow: 0 2px 8px rgba(0,0,0,0.05);
 }
 
 .cardapio-categoria h2 {
-  font-size: 1.5rem;
+  font-size: 1.6rem;
   margin-bottom: 1rem;
   display: flex;
   align-items: center;
   gap: 0.5rem;
+  color: var(--cor-texto);
 }
 
+/* Itens com linha pontilhada e alinhamento */
 .cardapio-item {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0.4rem 0;
-  border-bottom: 1px solid rgba(86,54,42,0.1);
+  margin: 0.6rem 0;
+  position: relative;
+  font-size: 1.05rem;
+  color: var(--cor-texto);
 }
 
-.cardapio-item:last-child {
-  border-bottom: none;
+.cardapio-item span:first-child {
+  background-color: var(--cor-section);
+  padding-right: 8px;
+  font-weight: 500;
 }
 
-.cardapio-item span {
-  font-size: 1rem;
+.cardapio-item span:last-child {
+  background-color: var(--cor-section);
+  padding-left: 8px;
+  font-weight: 600;
 }
+
+.cardapio-item::before {
+  content: "";
+  flex-grow: 1;
+  border-bottom: 1px dotted rgba(86,54,42,0.4);
+  margin: 0 8px;
+}
+
 
 /* ===============================
    PÁGINA ROUPAS INFANTIS
