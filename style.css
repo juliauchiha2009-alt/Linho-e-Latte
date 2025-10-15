@@ -22,17 +22,49 @@ body {
 /* ===============================
    CABEÇALHO
 =================================*/
+
 header {
   background-color: var(--cor-section);
   text-align: center;
-  padding: 1.5rem 0;
-  border-bottom: 2px solid rgba(86,54,42,0.2);
+  padding: 1.5rem 0 0.8rem;
+  border-bottom: 2px solid rgba(0,0,0,0.05);
 }
 
-header img.logo {
-  width: 140px; /* 🔥 Logo maior e centralizada */
-  height: auto;
-  margin-bottom: 1rem;
+header img {
+  height: 90px;
+  width: auto;
+  display: block;
+  margin: 0 auto 1rem;
+}
+
+nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+nav a {
+  text-decoration: none;
+  color: var(--cor-texto);
+  font-weight: bold;
+  font-size: 1rem;
+  padding-bottom: 5px;
+  border-bottom: 3px solid transparent;
+  transition: color 0.3s, border-bottom 0.3s;
+}
+
+nav a:hover {
+  color: var(--cor-destaque);
+  border-bottom: 3px solid var(--cor-destaque);
+}
+
+nav a.active {
+  color: var(--cor-destaque);
+  border-bottom: 3px solid var(--cor-destaque);
 }
 
 /* ===============================
