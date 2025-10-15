@@ -1,111 +1,99 @@
 /* ===============================
-   ESTILO GERAL - LINHO & LATTE
+   PALETA E FONTES
 =================================*/
-
 :root {
   --cor-fundo: #cdcfc0;
   --cor-section: #f1ebe5;
   --cor-texto: #56362a;
-  --cor-destaque: #56362a;
   --fonte-principal: 'Poppins', sans-serif;
 }
 
+/* ===============================
+   BASE GERAL
+=================================*/
 body {
-  margin: 0;
   font-family: var(--fonte-principal);
   background-color: var(--cor-fundo);
   color: var(--cor-texto);
-  line-height: 1.6;
+  margin: 0;
+  padding: 0;
 }
 
 /* ===============================
-   CABEÇALHO E MENU
+   CABEÇALHO
 =================================*/
-
 header {
   background-color: var(--cor-section);
   text-align: center;
-  padding: 1.5rem 0 0.8rem;
-  border-bottom: 2px solid rgba(0,0,0,0.05);
+  padding: 1.5rem 0;
+  border-bottom: 2px solid rgba(86,54,42,0.2);
 }
 
-header img {
-  height: 90px;
-  width: auto;
-  display: block;
-  margin: 0 auto 1rem;
+header img.logo {
+  width: 140px; /* 🔥 Logo maior e centralizada */
+  height: auto;
+  margin-bottom: 1rem;
 }
 
-nav ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
+/* ===============================
+   NAVEGAÇÃO
+=================================*/
+nav {
   display: flex;
   justify-content: center;
-  flex-wrap: wrap;
   gap: 2rem;
+  flex-wrap: wrap;
 }
 
 nav a {
   text-decoration: none;
   color: var(--cor-texto);
-  font-weight: bold;
-  font-size: 1rem;
-  padding-bottom: 5px;
-  border-bottom: 3px solid transparent;
-  transition: color 0.3s, border-bottom 0.3s;
+  font-weight: 600;
+  position: relative;
+  transition: color 0.3s ease;
 }
 
 nav a:hover {
-  color: var(--cor-destaque);
-  border-bottom: 3px solid var(--cor-destaque);
+  color: #7a4c3a;
 }
 
-nav a.active {
-  color: var(--cor-destaque);
-  border-bottom: 3px solid var(--cor-destaque);
+nav a::after {
+  content: "";
+  display: block;
+  height: 2px;
+  background-color: var(--cor-texto);
+  width: 0;
+  transition: width 0.3s ease;
+  margin: 0.25rem auto 0 auto;
+}
+
+nav a:hover::after {
+  width: 100%;
+}
+
+nav a.active::after {
+  width: 100%;
 }
 
 /* ===============================
-   SEÇÕES E CONTAINERS
+   SEÇÕES PADRÃO
 =================================*/
-
 section {
   background-color: var(--cor-section);
-  margin: 2rem auto;
-  padding: 2rem;
   border-radius: 10px;
-  width: 85%;
-  max-width: 1000px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
-}
-
-h1, h2, h3 {
-  color: var(--cor-texto);
-  font-weight: 700;
-}
-
-h1 {
-  text-align: center;
-  font-size: 1.8rem;
-}
-
-p {
-  font-size: 1rem;
+  padding: 2rem;
+  margin: 2rem auto;
+  max-width: 900px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.08);
 }
 
 /* ===============================
    CARDÁPIO
 =================================*/
-
-/* ===============================
-   CARDÁPIO ESTILIZADO
-=================================*/
-
 .cardapio {
   display: flex;
   flex-direction: column;
-  gap: 2.5rem;
+  gap: 2rem;
 }
 
 .cardapio-categoria {
@@ -124,7 +112,6 @@ p {
   color: var(--cor-texto);
 }
 
-/* Itens com linha pontilhada e alinhamento */
 .cardapio-item {
   display: flex;
   justify-content: space-between;
@@ -154,141 +141,117 @@ p {
   margin: 0 8px;
 }
 
-
 /* ===============================
-   PÁGINA ROUPAS INFANTIS
+   ROUPAS INFANTIS (CARDS + FILTRO)
 =================================*/
-
-.filtro-container {
+.roupas-container {
   background-color: var(--cor-section);
-  padding: 1rem;
-  border-radius: 10px;
+  border-radius: 12px;
+  padding: 1.5rem;
+  max-width: 1000px;
+  margin: 2rem auto;
   box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-  margin-bottom: 2rem;
+}
+
+.filtros {
   display: flex;
   flex-wrap: wrap;
-  gap: 1rem;
-  justify-content: center;
+  gap: 0.6rem;
+  margin-bottom: 1.2rem;
 }
 
-.filtro-container input,
-.filtro-container select {
-  padding: 0.5rem 0.8rem;
-  border: 1px solid rgba(0,0,0,0.2);
-  border-radius: 5px;
-  background-color: white;
-  font-family: var(--fonte-principal);
+.filtros input,
+.filtros select {
+  padding: 0.5rem;
+  border: 1px solid rgba(86,54,42,0.3);
+  border-radius: 6px;
+  background-color: var(--cor-section);
+  color: var(--cor-texto);
+  font-size: 0.95rem;
 }
 
-.roupas-grid {
+.grid-roupas {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 1.5rem;
 }
 
-.roupa-card {
+.card-roupa {
   background-color: var(--cor-section);
-  padding: 1rem;
   border-radius: 10px;
+  padding: 1rem;
   text-align: center;
-  box-shadow: 0 3px 8px rgba(0,0,0,0.1);
-  transition: transform 0.2s ease-in-out;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+  transition: transform 0.3s ease;
 }
 
-.roupa-card:hover {
-  transform: translateY(-5px);
+.card-roupa:hover {
+  transform: scale(1.03);
 }
 
-.roupa-card img {
+.card-roupa img {
   width: 100%;
-  height: 200px;
-  object-fit: cover;
+  max-width: 180px;
   border-radius: 8px;
 }
 
-.roupa-card h3 {
-  font-size: 1.1rem;
-  margin: 0.7rem 0 0.3rem;
+.card-roupa h3 {
+  margin-top: 0.8rem;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--cor-texto);
 }
 
-.roupa-card p {
-  font-size: 0.95rem;
-  color: rgba(86,54,42,0.8);
-}
-
-/* ===============================
-   PÁGINA FOTOS
-=================================*/
-
-.galeria {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 1rem;
-}
-
-.galeria img {
-  width: 100%;
-  border-radius: 10px;
-  object-fit: cover;
-  height: 220px;
-  transition: transform 0.3s;
-}
-
-.galeria img:hover {
-  transform: scale(1.03);
+.card-roupa p {
+  font-size: 0.9rem;
+  color: var(--cor-texto);
+  opacity: 0.8;
 }
 
 /* ===============================
    RODAPÉ
 =================================*/
-
 footer {
   background-color: var(--cor-section);
   text-align: center;
-  padding: 1rem;
+  padding: 1.5rem 0;
   font-size: 0.9rem;
   color: var(--cor-texto);
-  border-top: 2px solid rgba(0,0,0,0.05);
+  border-top: 2px solid rgba(86,54,42,0.2);
 }
 
 /* ===============================
    RESPONSIVIDADE
 =================================*/
-
 @media (max-width: 768px) {
-  nav ul {
-    flex-direction: column;
-    gap: 1rem;
+  header img.logo {
+    width: 120px;
   }
 
-  header img {
-    height: 80px;
+  nav {
+    flex-direction: column;
+    gap: 0.8rem;
   }
 
   section {
-    width: 90%;
-    padding: 1.5rem;
+    margin: 1rem;
+    padding: 1.2rem;
   }
 
-  .cardapio-item span {
-    font-size: 0.95rem;
-  }
-}
-
-@media (max-width: 480px) {
-  header img {
-    height: 70px;
+  .cardapio-item {
+    flex-direction: column;
+    align-items: flex-start;
   }
 
-  nav a {
-    font-size: 0.95rem;
+  .cardapio-item::before {
+    display: none;
   }
 
-  .cardapio-categoria h2 {
-    font-size: 1.3rem;
+  .grid-roupas {
+    grid-template-columns: 1fr 1fr;
   }
 
-  .roupa-card img {
-    height: 170px;
+  .card-roupa img {
+    max-width: 140px;
   }
 }
