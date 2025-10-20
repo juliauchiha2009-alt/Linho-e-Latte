@@ -38,28 +38,41 @@ header img {
 }
 
 /* ===============================
-   NAVEGAÇÃO
+   MENU DE NAVEGAÇÃO
 =================================*/
 nav {
+  background-color: var(--cor-section);
   display: flex;
   justify-content: center;
-  gap: 2rem;
-  flex-wrap: wrap;
+  align-items: center;
+  padding-bottom: 1rem;
 }
 
+/* Remove bolinhas e espaçamentos */
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 2.5rem;
+  padding: 0;
+  margin: 0;
+}
+
+/* Links do menu */
 nav a {
   text-decoration: none;
   color: var(--cor-texto);
   font-weight: 600;
   position: relative;
-  transition: color 0.3s ease;
   font-size: 1rem;
+  transition: color 0.3s ease;
 }
 
+/* Efeito hover */
 nav a:hover {
   color: var(--cor-destaque);
 }
 
+/* Linha abaixo ao passar o mouse */
 nav a::after {
   content: "";
   display: block;
@@ -70,10 +83,8 @@ nav a::after {
   margin: 0.25rem auto 0 auto;
 }
 
-nav a:hover::after {
-  width: 100%;
-}
-
+/* Ativo ou hover */
+nav a:hover::after,
 nav a.active::after {
   width: 100%;
 }
@@ -177,7 +188,7 @@ section {
   color: var(--cor-texto);
   font-size: 1rem;
   width: 200px;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
 }
 
 .filtros input:focus,
@@ -247,7 +258,7 @@ footer {
     height: 100px;
   }
 
-  nav {
+  nav ul {
     flex-direction: column;
     gap: 0.8rem;
   }
