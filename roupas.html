@@ -54,30 +54,48 @@
     </div>
 
     <!-- produtos -->
-    <section class="products" aria-live="polite">
-      <!-- Card 1 -->
-      <article class="product-card" data-name="Camiseta Azul" data-type="camiseta" data-age="3-5" data-condition="novo">
-        <img src="camiseta-azul.png" alt="Camiseta azul infantil">
-        <div class="product-title">Camiseta Azul</div>
-        <div class="product-meta">3-5 anos | Novo</div>
-      </article>
+   <section class="roupas-container">
+  <div class="filtros">
+    <input type="text" placeholder="Pesquisar peça...">
+    <select>
+      <option>Tipo de peça</option>
+      <option>Camisa</option>
+      <option>Calça</option>
+      <option>Vestido</option>
+    </select>
+    <select>
+      <option>Idade</option>
+      <option>0-2 anos</option>
+      <option>3-5 anos</option>
+      <option>6-10 anos</option>
+    </select>
+    <select>
+      <option>Condição</option>
+      <option>Novo</option>
+      <option>Usado</option>
+    </select>
+  </div>
 
-      <!-- Card 2 -->
-      <article class="product-card" data-name="Vestido Rosa" data-type="vestido" data-age="0-2" data-condition="usado">
-        <img src="vestido-rosa.png" alt="Vestido rosa infantil">
-        <div class="product-title">Vestido Rosa</div>
-        <div class="product-meta">0-2 anos | Usado</div>
-      </article>
+  <div class="grid-roupas">
+    <div class="card-roupa">
+      <img src="img/camisa-azul.jpg" alt="Camiseta Azul">
+      <h3>Camiseta Azul</h3>
+      <p>3-5 anos | Novo</p>
+    </div>
 
-      <!-- Card 3 -->
-      <article class="product-card" data-name="Calça Jeans" data-type="calca" data-age="6-10" data-condition="novo">
-        <img src="calca-jeans.png" alt="Calça jeans infantil">
-        <div class="product-title">Calça Jeans</div>
-        <div class="product-meta">6-10 anos | Novo</div>
-      </article>
+    <div class="card-roupa">
+      <img src="img/vestido-rosa.jpg" alt="Vestido Rosa">
+      <h3>Vestido Rosa</h3>
+      <p>0-2 anos | Usado</p>
+    </div>
 
-      <!-- -> Você pode duplicar / adicionar novos cards aqui (só manter os data-attributes) -->
-    </section>
+    <div class="card-roupa">
+      <img src="img/calca-jeans.jpg" alt="Calça Jeans">
+      <h3>Calça Jeans</h3>
+      <p>6-10 anos | Novo</p>
+    </div>
+  </div>
+</section>
 
   </main>
 
