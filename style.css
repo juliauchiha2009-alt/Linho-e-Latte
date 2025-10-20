@@ -5,6 +5,7 @@
   --cor-fundo: #cdcfc0;
   --cor-section: #f1ebe5;
   --cor-texto: #56362a;
+  --cor-destaque: #7a4c3a;
   --fonte-principal: 'Poppins', sans-serif;
 }
 
@@ -22,49 +23,18 @@ body {
 /* ===============================
    CABEÇALHO
 =================================*/
-
 header {
   background-color: var(--cor-section);
   text-align: center;
   padding: 1.5rem 0 0.8rem;
-  border-bottom: 2px solid rgba(0,0,0,0.05);
+  border-bottom: 2px solid rgba(0, 0, 0, 0.05);
 }
 
 header img {
-  height: 90px;
+  height: 130px; /* Logo maior */
   width: auto;
   display: block;
   margin: 0 auto 1rem;
-}
-
-nav ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 2rem;
-}
-
-nav a {
-  text-decoration: none;
-  color: var(--cor-texto);
-  font-weight: bold;
-  font-size: 1rem;
-  padding-bottom: 5px;
-  border-bottom: 3px solid transparent;
-  transition: color 0.3s, border-bottom 0.3s;
-}
-
-nav a:hover {
-  color: var(--cor-destaque);
-  border-bottom: 3px solid var(--cor-destaque);
-}
-
-nav a.active {
-  color: var(--cor-destaque);
-  border-bottom: 3px solid var(--cor-destaque);
 }
 
 /* ===============================
@@ -83,10 +53,11 @@ nav a {
   font-weight: 600;
   position: relative;
   transition: color 0.3s ease;
+  font-size: 1rem;
 }
 
 nav a:hover {
-  color: #7a4c3a;
+  color: var(--cor-destaque);
 }
 
 nav a::after {
@@ -116,7 +87,7 @@ section {
   padding: 2rem;
   margin: 2rem auto;
   max-width: 900px;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
 }
 
 /* ===============================
@@ -132,7 +103,7 @@ section {
   background-color: var(--cor-section);
   border-radius: 10px;
   padding: 1.5rem 2rem;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
 }
 
 .cardapio-categoria h2 {
@@ -158,54 +129,69 @@ section {
   background-color: var(--cor-section);
   padding-right: 8px;
   font-weight: 500;
+  text-align: left;
 }
 
 .cardapio-item span:last-child {
   background-color: var(--cor-section);
   padding-left: 8px;
   font-weight: 600;
+  text-align: right;
 }
 
 .cardapio-item::before {
   content: "";
   flex-grow: 1;
-  border-bottom: 1px dotted rgba(86,54,42,0.4);
+  border-bottom: 1px dotted rgba(86, 54, 42, 0.4);
   margin: 0 8px;
 }
 
 /* ===============================
-   ROUPAS INFANTIS (CARDS + FILTRO)
+   ROUPAS INFANTIS
 =================================*/
 .roupas-container {
   background-color: var(--cor-section);
   border-radius: 12px;
-  padding: 1.5rem;
+  padding: 2rem;
   max-width: 1000px;
   margin: 2rem auto;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
 }
 
+/* Filtro centralizado e maior */
 .filtros {
   display: flex;
+  justify-content: center;
+  align-items: center;
   flex-wrap: wrap;
-  gap: 0.6rem;
-  margin-bottom: 1.2rem;
+  gap: 1rem;
+  margin-bottom: 2rem;
 }
 
 .filtros input,
 .filtros select {
-  padding: 0.5rem;
-  border: 1px solid rgba(86,54,42,0.3);
+  padding: 0.8rem 1.2rem;
+  border: 1px solid rgba(86, 54, 42, 0.3);
   border-radius: 6px;
   background-color: var(--cor-section);
   color: var(--cor-texto);
-  font-size: 0.95rem;
+  font-size: 1rem;
+  width: 200px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
 }
 
+.filtros input:focus,
+.filtros select:focus {
+  outline: none;
+  border-color: var(--cor-destaque);
+}
+
+/* Cards das roupas */
 .grid-roupas {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 1.5rem;
+  justify-items: center;
 }
 
 .card-roupa {
@@ -213,8 +199,9 @@ section {
   border-radius: 10px;
   padding: 1rem;
   text-align: center;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
   transition: transform 0.3s ease;
+  width: 220px;
 }
 
 .card-roupa:hover {
@@ -249,15 +236,15 @@ footer {
   padding: 1.5rem 0;
   font-size: 0.9rem;
   color: var(--cor-texto);
-  border-top: 2px solid rgba(86,54,42,0.2);
+  border-top: 2px solid rgba(86, 54, 42, 0.2);
 }
 
 /* ===============================
    RESPONSIVIDADE
 =================================*/
 @media (max-width: 768px) {
-  header img.logo {
-    width: 120px;
+  header img {
+    height: 100px;
   }
 
   nav {
@@ -285,5 +272,15 @@ footer {
 
   .card-roupa img {
     max-width: 140px;
+  }
+
+  .filtros {
+    flex-direction: column;
+    gap: 0.8rem;
+  }
+
+  .filtros input,
+  .filtros select {
+    width: 90%;
   }
 }
