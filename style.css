@@ -5,14 +5,12 @@
   --cor-fundo: #cdcfc0;
   --cor-section: #f1ebe5;
   --cor-texto: #56362a;
-  --cor-destaque: #7a4c3a;
   --fonte-principal: 'Poppins', sans-serif;
 }
 
 /* ===============================
    BASE GERAL
 =================================*/
-* { box-sizing: border-box; }
 body {
   font-family: var(--fonte-principal);
   background-color: var(--cor-fundo);
@@ -27,48 +25,32 @@ body {
 header {
   background-color: var(--cor-section);
   text-align: center;
-  padding: 1.5rem 0 0.8rem;
+  padding: 1.8rem 0 1rem;
   border-bottom: 2px solid rgba(0,0,0,0.05);
 }
 
-header img.logo {
-  height: 140px; /* logo maior */
+header img {
+  height: 120px;
   width: auto;
   display: block;
-  margin: 0 auto 0.6rem;
+  margin: 0 auto 1rem;
 }
 
-/* ===============================
-   MENU DE NAVEGAÇÃO
-=================================*/
 nav {
-  background-color: var(--cor-section);
   display: flex;
   justify-content: center;
-  align-items: center;
-  padding-bottom: 1rem;
+  gap: 2rem;
+  flex-wrap: wrap;
 }
-
-nav ul {
-  list-style: none;
-  display: flex;
-  gap: 2.5rem;
-  padding: 0;
-  margin: 0;
-}
-
-nav li { list-style: none; }
 
 nav a {
   text-decoration: none;
   color: var(--cor-texto);
   font-weight: 600;
-  position: relative;
   font-size: 1rem;
-  transition: color 0.25s ease;
+  position: relative;
+  transition: color 0.3s ease;
 }
-
-nav a:hover { color: var(--cor-destaque); }
 
 nav a::after {
   content: "";
@@ -76,7 +58,7 @@ nav a::after {
   height: 2px;
   background-color: var(--cor-texto);
   width: 0;
-  transition: width 0.25s ease;
+  transition: width 0.3s ease;
   margin: 0.25rem auto 0 auto;
 }
 
@@ -88,27 +70,63 @@ nav a.active::after {
 /* ===============================
    SEÇÕES PADRÃO
 =================================*/
-.container {
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 0 16px;
-}
-
 section {
   background-color: var(--cor-section);
-  border-radius: 10px;
+  border-radius: 12px;
   padding: 2rem;
   margin: 2rem auto;
+  max-width: 950px;
   box-shadow: 0 2px 10px rgba(0,0,0,0.08);
 }
 
 /* ===============================
-   FILTROS (CENTRALIZADOS + GRANDE)
+   CARDÁPIO
+=================================*/
+.cardapio {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.cardapio-categoria {
+  background-color: var(--cor-section);
+  border-radius: 10px;
+  padding: 1.5rem 2rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.cardapio-categoria h2 {
+  font-size: 1.6rem;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.cardapio-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0.6rem 0;
+  position: relative;
+  font-size: 1.05rem;
+}
+
+.cardapio-item::before {
+  content: "";
+  flex-grow: 1;
+  border-bottom: 1px dotted rgba(86,54,42,0.4);
+  margin: 0 8px;
+}
+
+/* ===============================
+   ROUPAS INFANTIS
 =================================*/
 .roupas-container {
   background-color: var(--cor-section);
   border-radius: 12px;
-  padding: 2rem;
+  padding: 1.5rem;
+  max-width: 1000px;
   margin: 2rem auto;
   box-shadow: 0 2px 8px rgba(0,0,0,0.08);
 }
@@ -116,49 +134,25 @@ section {
 .filtros {
   display: flex;
   justify-content: center;
-  align-items: center;
   flex-wrap: wrap;
   gap: 1rem;
-  margin-bottom: 1.8rem;
-  width: 100%;
+  margin-bottom: 1.5rem;
 }
 
-.filtros .search,
-.filtros .select {
-  display: inline-block;
-}
-
-.filtros input[type="text"],
+.filtros input,
 .filtros select {
-  padding: 0.9rem 1rem;
-  border: 1px solid rgba(86,54,42,0.25);
+  padding: 0.6rem 1rem;
+  border: 1px solid rgba(86,54,42,0.3);
   border-radius: 8px;
-  background: #fff;
+  background-color: var(--cor-section);
   color: var(--cor-texto);
   font-size: 1rem;
-  width: 260px;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.04);
 }
 
-.filtros input[type="text"]::placeholder {
-  color: rgba(86,54,42,0.45);
-}
-
-.filtros input[type="text"]:focus,
-.filtros select:focus {
-  outline: none;
-  border-color: var(--cor-destaque);
-  box-shadow: 0 0 8px rgba(122,76,58,0.12);
-}
-
-/* ===============================
-   GRID DE ROUPAS E CARDS
-=================================*/
 .grid-roupas {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
-  gap: 1.25rem;
-  align-items: start;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
 }
 
 .card-roupa {
@@ -166,78 +160,29 @@ section {
   border-radius: 10px;
   padding: 1rem;
   text-align: center;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.06);
-  transition: transform 0.18s ease;
-  width: 100%;
-  max-width: 260px;
-  margin: 0 auto;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+  transition: transform 0.3s ease;
 }
 
-.card-roupa:hover { transform: translateY(-6px); }
+.card-roupa:hover {
+  transform: scale(1.03);
+}
 
 .card-roupa img {
-  width: 120px;
-  height: 120px;
-  object-fit: cover;
+  width: 100%;
+  max-width: 180px;
   border-radius: 8px;
-  display: block;
-  margin: 0 auto;
 }
 
 .card-roupa h3 {
   margin-top: 0.8rem;
-  font-size: 1.02rem;
+  font-size: 1rem;
   font-weight: 600;
-  color: var(--cor-texto);
 }
 
 .card-roupa p {
-  font-size: 0.92rem;
-  color: rgba(86,54,42,0.9);
-  margin-top: 0.25rem;
-}
-
-/* ===============================
-   CARDÁPIO (LINHAS E PREÇOS À DIREITA)
-=================================*/
-.cardapio {
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
-}
-
-.cardapio-categoria {
-  padding: 1.4rem;
-  border-radius: 10px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-}
-
-.cardapio-item {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0.45rem 0;
-  position: relative;
-  font-size: 1.03rem;
-}
-
-.cardapio-item .nome {
-  font-weight: 500;
-}
-
-.cardapio-item .preco {
-  font-weight: 700;
-}
-
-/* linha pontilhada entre nome e preço */
-.cardapio-item::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0.2rem;
-  border-bottom: 1px dotted rgba(86,54,42,0.22);
-  pointer-events: none;
+  font-size: 0.9rem;
+  opacity: 0.8;
 }
 
 /* ===============================
@@ -246,26 +191,49 @@ section {
 footer {
   background-color: var(--cor-section);
   text-align: center;
-  padding: 1.2rem 0;
+  padding: 1.5rem 0;
+  font-size: 0.9rem;
   color: var(--cor-texto);
-  border-top: 2px solid rgba(86,54,42,0.12);
+  border-top: 2px solid rgba(86,54,42,0.2);
 }
 
 /* ===============================
    RESPONSIVIDADE
 =================================*/
-@media (max-width: 900px) {
-  .filtros input[type="text"],
-  .filtros select { width: 220px; }
-  header img.logo { height: 120px; }
-}
+@media (max-width: 768px) {
+  header img {
+    height: 100px;
+  }
 
-@media (max-width: 640px) {
-  nav ul { flex-direction: column; gap: 0.6rem; }
-  header img.logo { height: 100px; }
-  .card-roupa img { width: 100px; height: 100px; }
-  .filtros { flex-direction: column; gap: 0.8rem; }
-  .filtros input[type="text"],
-  .filtros select { width: 92%; max-width: 360px; }
-  .grid-roupas { grid-template-columns: 1fr; }
+  nav {
+    flex-direction: column;
+    gap: 0.8rem;
+  }
+
+  section {
+    margin: 1rem;
+    padding: 1.2rem;
+  }
+
+  .cardapio-item {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .cardapio-item::before {
+    display: none;
+  }
+
+  .filtros {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .grid-roupas {
+    grid-template-columns: 1fr;
+  }
+
+  .card-roupa img {
+    max-width: 140px;
+  }
 }
