@@ -12,6 +12,7 @@
 /* ===============================
    BASE GERAL
 =================================*/
+* { box-sizing: border-box; }
 body {
   font-family: var(--fonte-principal);
   background-color: var(--cor-fundo);
@@ -27,14 +28,14 @@ header {
   background-color: var(--cor-section);
   text-align: center;
   padding: 1.5rem 0 0.8rem;
-  border-bottom: 2px solid rgba(0, 0, 0, 0.05);
+  border-bottom: 2px solid rgba(0,0,0,0.05);
 }
 
-header img {
-  height: 200px; /* Logo maior */
+header img.logo {
+  height: 140px; /* logo maior */
   width: auto;
   display: block;
-  margin: 0 auto 1rem;
+  margin: 0 auto 0.6rem;
 }
 
 /* ===============================
@@ -48,7 +49,6 @@ nav {
   padding-bottom: 1rem;
 }
 
-/* Remove bolinhas e espaçamentos */
 nav ul {
   list-style: none;
   display: flex;
@@ -57,33 +57,29 @@ nav ul {
   margin: 0;
 }
 
-/* Links do menu */
+nav li { list-style: none; }
+
 nav a {
   text-decoration: none;
   color: var(--cor-texto);
   font-weight: 600;
   position: relative;
   font-size: 1rem;
-  transition: color 0.3s ease;
+  transition: color 0.25s ease;
 }
 
-/* Efeito hover */
-nav a:hover {
-  color: var(--cor-destaque);
-}
+nav a:hover { color: var(--cor-destaque); }
 
-/* Linha abaixo ao passar o mouse */
 nav a::after {
   content: "";
   display: block;
   height: 2px;
   background-color: var(--cor-texto);
   width: 0;
-  transition: width 0.3s ease;
+  transition: width 0.25s ease;
   margin: 0.25rem auto 0 auto;
 }
 
-/* Ativo ou hover */
 nav a:hover::after,
 nav a.active::after {
   width: 100%;
@@ -92,130 +88,77 @@ nav a.active::after {
 /* ===============================
    SEÇÕES PADRÃO
 =================================*/
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
 section {
   background-color: var(--cor-section);
   border-radius: 10px;
   padding: 2rem;
   margin: 2rem auto;
-  max-width: 900px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 2px 10px rgba(0,0,0,0.08);
 }
 
 /* ===============================
-   CARDÁPIO
-=================================*/
-.cardapio {
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-}
-
-.cardapio-categoria {
-  background-color: var(--cor-section);
-  border-radius: 10px;
-  padding: 1.5rem 2rem;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-}
-
-.cardapio-categoria h2 {
-  font-size: 1.6rem;
-  margin-bottom: 1rem;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  color: var(--cor-texto);
-}
-
-.cardapio-item {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin: 0.6rem 0;
-  position: relative;
-  font-size: 1.05rem;
-  color: var(--cor-texto);
-}
-
-.cardapio-item span:first-child {
-  background-color: var(--cor-section);
-  padding-right: 8px;
-  font-weight: 500;
-  text-align: left;
-}
-
-.cardapio-item span:last-child {
-  background-color: var(--cor-section);
-  padding-left: 8px;
-  font-weight: 600;
-  text-align: right;
-}
-
-.cardapio-item::before {
-  content: "";
-  flex-grow: 1;
-  border-bottom: 1px dotted rgba(86, 54, 42, 0.4);
-  margin: 0 8px;
-}
-
-/* ===============================
-   ROUPAS INFANTIS
+   FILTROS (CENTRALIZADOS + GRANDE)
 =================================*/
 .roupas-container {
   background-color: var(--cor-section);
   border-radius: 12px;
   padding: 2rem;
-  max-width: 1000px;
   margin: 2rem auto;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
 }
 
-/* ===============================
-   FILTROS CENTRALIZADOS
-=================================*/
 .filtros {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
   gap: 1rem;
-  margin-bottom: 2rem;
+  margin-bottom: 1.8rem;
+  width: 100%;
 }
 
-.filtros input,
+.filtros .search,
+.filtros .select {
+  display: inline-block;
+}
+
+.filtros input[type="text"],
 .filtros select {
-  padding: 0.8rem 1rem;
-  border: 1px solid rgba(86, 54, 42, 0.3);
-  border-radius: 6px;
-  background-color: var(--cor-section);
+  padding: 0.9rem 1rem;
+  border: 1px solid rgba(86,54,42,0.25);
+  border-radius: 8px;
+  background: #fff;
   color: var(--cor-texto);
   font-size: 1rem;
-  width: 220px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-  transition: all 0.3s ease;
+  width: 260px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.04);
 }
 
-.filtros input:focus,
+.filtros input[type="text"]::placeholder {
+  color: rgba(86,54,42,0.45);
+}
+
+.filtros input[type="text"]:focus,
 .filtros select:focus {
   outline: none;
   border-color: var(--cor-destaque);
-  box-shadow: 0 0 6px rgba(122, 76, 58, 0.3);
+  box-shadow: 0 0 8px rgba(122,76,58,0.12);
 }
 
-/* Deixa o contêiner principal harmonioso */
-.roupas-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-}
-
-/* Cards das roupas */
+/* ===============================
+   GRID DE ROUPAS E CARDS
+=================================*/
 .grid-roupas {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 1.5rem;
-  justify-items: center;
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  gap: 1.25rem;
+  align-items: start;
 }
 
 .card-roupa {
@@ -223,32 +166,78 @@ section {
   border-radius: 10px;
   padding: 1rem;
   text-align: center;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
-  transition: transform 0.3s ease;
-  width: 220px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+  transition: transform 0.18s ease;
+  width: 100%;
+  max-width: 260px;
+  margin: 0 auto;
 }
 
-.card-roupa:hover {
-  transform: scale(1.03);
-}
+.card-roupa:hover { transform: translateY(-6px); }
 
 .card-roupa img {
-  width: 100%;
-  max-width: 180px;
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
   border-radius: 8px;
+  display: block;
+  margin: 0 auto;
 }
 
 .card-roupa h3 {
   margin-top: 0.8rem;
-  font-size: 1rem;
+  font-size: 1.02rem;
   font-weight: 600;
   color: var(--cor-texto);
 }
 
 .card-roupa p {
-  font-size: 0.9rem;
-  color: var(--cor-texto);
-  opacity: 0.8;
+  font-size: 0.92rem;
+  color: rgba(86,54,42,0.9);
+  margin-top: 0.25rem;
+}
+
+/* ===============================
+   CARDÁPIO (LINHAS E PREÇOS À DIREITA)
+=================================*/
+.cardapio {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.cardapio-categoria {
+  padding: 1.4rem;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.cardapio-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.45rem 0;
+  position: relative;
+  font-size: 1.03rem;
+}
+
+.cardapio-item .nome {
+  font-weight: 500;
+}
+
+.cardapio-item .preco {
+  font-weight: 700;
+}
+
+/* linha pontilhada entre nome e preço */
+.cardapio-item::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0.2rem;
+  border-bottom: 1px dotted rgba(86,54,42,0.22);
+  pointer-events: none;
 }
 
 /* ===============================
@@ -257,54 +246,26 @@ section {
 footer {
   background-color: var(--cor-section);
   text-align: center;
-  padding: 1.5rem 0;
-  font-size: 0.9rem;
+  padding: 1.2rem 0;
   color: var(--cor-texto);
-  border-top: 2px solid rgba(86, 54, 42, 0.2);
+  border-top: 2px solid rgba(86,54,42,0.12);
 }
 
 /* ===============================
    RESPONSIVIDADE
 =================================*/
-@media (max-width: 768px) {
-  header img {
-    height: 100px;
-  }
+@media (max-width: 900px) {
+  .filtros input[type="text"],
+  .filtros select { width: 220px; }
+  header img.logo { height: 120px; }
+}
 
-  nav ul {
-    flex-direction: column;
-    gap: 0.8rem;
-  }
-
-  section {
-    margin: 1rem;
-    padding: 1.2rem;
-  }
-
-  .cardapio-item {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .cardapio-item::before {
-    display: none;
-  }
-
-  .grid-roupas {
-    grid-template-columns: 1fr 1fr;
-  }
-
-  .card-roupa img {
-    max-width: 140px;
-  }
-
-  .filtros {
-    flex-direction: column;
-    gap: 0.8rem;
-  }
-
-  .filtros input,
-  .filtros select {
-    width: 90%;
-  }
+@media (max-width: 640px) {
+  nav ul { flex-direction: column; gap: 0.6rem; }
+  header img.logo { height: 100px; }
+  .card-roupa img { width: 100px; height: 100px; }
+  .filtros { flex-direction: column; gap: 0.8rem; }
+  .filtros input[type="text"],
+  .filtros select { width: 92%; max-width: 360px; }
+  .grid-roupas { grid-template-columns: 1fr; }
 }
