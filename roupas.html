@@ -3,108 +3,130 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Roupas infantis - Linho & Latte</title>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+  <title>Roupas Infantis - Linho & Latte</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <header>
+    <div class="container">
+      <img src="logo.png" alt="Linho & Latte" class="logo">
+      <nav>
+        <ul>
+          <li><a href="index.html">Início</a></li>
+          <li><a href="cardapio.html">Cardápio</a></li>
+          <li><a href="roupas.html" class="active">Roupas infantis</a></li>
+          <li><a href="contribuir.html">Quero contribuir</a></li>
+          <li><a href="sobre.html">Sobre nós</a></li>
+          <li><a href="fotos.html">Fotos</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
 
- <header>
-  <img src="logo.png" alt="Linho & Latte" class="logo">
-  <nav>
-    <ul>
-      <li><a href="index.html">Início</a></li>
-      <li><a href="cardapio.html">Cardápio</a></li>
-      <li><a href="roupas.html"class="active">Roupas infantis</a></li>
-      <li><a href="contribuir.html">Quero contribuir</a></li>
-      <li><a href="sobre.html">Sobre nós</a></li>
-      <li><a href="fotos.html">Fotos</a></li>
-    </ul>
-  </nav>
-</header>
-
-
-  <!-- MAIN -->
-  <main>
-    <!-- filtro e pesquisa -->
-    <div class="filters" role="region" aria-label="Filtros de busca">
-      <div class="search">
-        <input type="search" id="searchInput" placeholder="Pesquisar peça..." aria-label="Pesquisar peça">
+  <main class="container">
+    <section class="roupas-container">
+      <!-- FILTROS CENTRALIZADOS -->
+      <div class="filtros">
+        <input id="searchInput" type="text" placeholder="Pesquisar peça...">
+        <select id="tipoSelect">
+          <option value="">Tipo de peça</option>
+          <option value="Camiseta">Camiseta</option>
+          <option value="Vestido">Vestido</option>
+          <option value="Calça">Calça</option>
+        </select>
+        <select id="idadeSelect">
+          <option value="">Idade</option>
+          <option value="0-2 anos">0-2 anos</option>
+          <option value="3-5 anos">3-5 anos</option>
+          <option value="6-10 anos">6-10 anos</option>
+        </select>
+        <select id="condSelect">
+          <option value="">Condição</option>
+          <option value="Novo">Novo</option>
+          <option value="Usado">Usado</option>
+        </select>
       </div>
 
-      <select id="filterType" aria-label="Tipo de peça">
-        <option value="all">Tipo de peça</option>
-        <option value="camiseta">Camiseta</option>
-        <option value="vestido">Vestido</option>
-        <option value="calca">Calça</option>
-      </select>
+      <!-- GRID DE CARDS -->
+      <div id="grid" class="grid-roupas">
+        <!-- exemplo de cards: atributo data para filtrar -->
+        <div class="card-roupa" data-nome="Camiseta Azul" data-tipo="Camiseta" data-idade="3-5 anos" data-condicao="Novo">
+          <img src="img/camiseta-azul.png" alt="Camiseta Azul">
+          <h3>Camiseta Azul</h3>
+          <p>3-5 anos | Novo</p>
+        </div>
 
-      <select id="filterAge" aria-label="Faixa etária">
-        <option value="all">Idade</option>
-        <option value="0-2">0-2 anos</option>
-        <option value="3-5">3-5 anos</option>
-        <option value="6-10">6-10 anos</option>
-      </select>
+        <div class="card-roupa" data-nome="Vestido Rosa" data-tipo="Vestido" data-idade="0-2 anos" data-condicao="Usado">
+          <img src="img/vestido-rosa.png" alt="Vestido Rosa">
+          <h3>Vestido Rosa</h3>
+          <p>0-2 anos | Usado</p>
+        </div>
 
-      <select id="filterCondition" aria-label="Condição">
-        <option value="all">Condição</option>
-        <option value="novo">Novo</option>
-        <option value="usado">Usado</option>
-      </select>
-    </div>
+        <div class="card-roupa" data-nome="Calça Jeans" data-tipo="Calça" data-idade="6-10 anos" data-condicao="Novo">
+          <img src="img/calca-jeans.png" alt="Calça Jeans">
+          <h3>Calça Jeans</h3>
+          <p>6-10 anos | Novo</p>
+        </div>
 
-    <!-- produtos -->
-   <section class="roupas-container">
-  <div class="filtros">
-    <input type="text" placeholder="Pesquisar peça...">
-    <select>
-      <option>Tipo de peça</option>
-      <option>Camisa</option>
-      <option>Calça</option>
-      <option>Vestido</option>
-    </select>
-    <select>
-      <option>Idade</option>
-      <option>0-2 anos</option>
-      <option>3-5 anos</option>
-      <option>6-10 anos</option>
-    </select>
-    <select>
-      <option>Condição</option>
-      <option>Novo</option>
-      <option>Usado</option>
-    </select>
-  </div>
-
-  <div class="grid-roupas">
-    <div class="card-roupa">
-      <img src="img/camisa-azul.jpg" alt="Camiseta Azul">
-      <h3>Camiseta Azul</h3>
-      <p>3-5 anos | Novo</p>
-    </div>
-
-    <div class="card-roupa">
-      <img src="img/vestido-rosa.jpg" alt="Vestido Rosa">
-      <h3>Vestido Rosa</h3>
-      <p>0-2 anos | Usado</p>
-    </div>
-
-    <div class="card-roupa">
-      <img src="img/calca-jeans.jpg" alt="Calça Jeans">
-      <h3>Calça Jeans</h3>
-      <p>6-10 anos | Novo</p>
-    </div>
-  </div>
-</section>
-
+        <!-- você pode duplicar/colar estes blocos e alterar os data-* conforme necessário -->
+      </div>
+    </section>
   </main>
 
   <footer>
     © 2025 Linho & Latte | Instagram: @linhoelatte | WhatsApp: (00) 00000-0000
   </footer>
 
-  <!-- script de filtro -->
-  <script src="script.js"></script>
+  <!-- =========================
+       JS: busca + filtros
+       ========================= -->
+  <script>
+    (function(){
+      const searchInput = document.getElementById('searchInput');
+      const tipoSelect = document.getElementById('tipoSelect');
+      const idadeSelect = document.getElementById('idadeSelect');
+      const condSelect = document.getElementById('condSelect');
+      const grid = document.getElementById('grid');
+      const cards = Array.from(grid.querySelectorAll('.card-roupa'));
+
+      function normalize(text){
+        return text.trim().toLowerCase();
+      }
+
+      function applyFilters(){
+        const q = normalize(searchInput.value || '');
+        const tipo = normalize(tipoSelect.value || '');
+        const idade = normalize(idadeSelect.value || '');
+        const cond = normalize(condSelect.value || '');
+
+        cards.forEach(card => {
+          const nome = normalize(card.dataset.nome || '');
+          const t = normalize(card.dataset.tipo || '');
+          const id = normalize(card.dataset.idade || '');
+          const c = normalize(card.dataset.condicao || '');
+
+          const matchesSearch = q === '' || nome.includes(q);
+          const matchesTipo = tipo === '' || t === tipo;
+          const matchesIdade = idade === '' || id === idade;
+          const matchesCond = cond === '' || c === cond;
+
+          if (matchesSearch && matchesTipo && matchesIdade && matchesCond) {
+            card.style.display = '';
+          } else {
+            card.style.display = 'none';
+          }
+        });
+      }
+
+      // eventos
+      searchInput.addEventListener('input', applyFilters);
+      tipoSelect.addEventListener('change', applyFilters);
+      idadeSelect.addEventListener('change', applyFilters);
+      condSelect.addEventListener('change', applyFilters);
+
+      // Inicializa (exibe todos)
+      applyFilters();
+    })();
+  </script>
 </body>
 </html>
-
