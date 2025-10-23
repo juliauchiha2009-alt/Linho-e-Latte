@@ -141,6 +141,79 @@ section {
 }
 
 /* ===============================
+   ROUPAS INFANTIS (CORRIGIDO)
+=================================*/
+.roupas-container {
+  background-color: var(--cor-section);
+  border-radius: 12px;
+  padding: 2rem;
+  max-width: 1000px;
+  margin: 2rem auto;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+}
+
+.filtros {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 1.8rem;
+}
+
+.filtros input,
+.filtros select {
+  padding: 0.7rem 1rem;
+  font-size: 1rem;
+  border: 1px solid rgba(86,54,42,0.3);
+  border-radius: 6px;
+  background-color: #fff;
+  color: var(--cor-texto);
+  min-width: 180px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.grid-roupas {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 1.5rem;
+  justify-items: center;
+}
+
+.card-roupa {
+  background-color: var(--cor-section);
+  border-radius: 10px;
+  padding: 1rem;
+  text-align: center;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+  transition: transform 0.3s ease;
+  width: 100%;
+  max-width: 250px;
+}
+
+.card-roupa:hover {
+  transform: scale(1.03);
+}
+
+.card-roupa img {
+  width: 100%;
+  max-width: 200px;
+  border-radius: 8px;
+}
+
+.card-roupa h3 {
+  margin-top: 0.8rem;
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--cor-texto);
+}
+
+.card-roupa p {
+  font-size: 0.9rem;
+  color: var(--cor-texto);
+  opacity: 0.8;
+}
+
+/* ===============================
    RODAPÉ
 =================================*/
 footer {
