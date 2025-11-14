@@ -247,3 +247,17 @@ footer {
     width: 100%;
   }
 }
+
+video.mp4 {
+  width: 100%;
+  max-width: 600px;
+  margin: 20px auto;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+video.mp4 {
+  width: 100%;
+  display: block;
+}
