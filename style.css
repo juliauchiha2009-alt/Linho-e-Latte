@@ -248,19 +248,20 @@ footer {
   }
 }
 
-.sobre-Vídeo {
-    width: 100%;
-    max-width: 700px;
-    margin: 25px auto;
-    background: #fff;
-    padding: 10px;
-    border-radius: 16px;
-    box-shadow: 0 4px 14px rgba(0,0,0,0.15);
+.sobre-video {
+  width: 100%;
+  max-width: 700px;
+  margin: 20px auto;
+  display: block;
+  padding: 10px;
+  border-radius: 12px;
+  background: #fff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
-.sobre-Vídeo vídeo {
-    width: 100%;
-    height: auto;
-    border-radius: 12px;
-    display: block;
+.sobre-video video {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 12px;
 }
