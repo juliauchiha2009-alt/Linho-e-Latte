@@ -248,7 +248,7 @@ footer {
   }
 }
 
-.sobre-vídeo {
+.sobre-Vídeo {
     width: 100%;
     max-width: 700px;
     margin: 25px auto;
@@ -258,7 +258,7 @@ footer {
     box-shadow: 0 4px 14px rgba(0,0,0,0.15);
 }
 
-.sobre-vídeo vídeo {
+.sobre-Vídeo vídeo {
     width: 100%;
     height: auto;
     border-radius: 12px;
